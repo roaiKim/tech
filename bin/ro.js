@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-require('../src/e-init/index.js')
+const program = require('commander')
+
+program.command('init').description('初始化项目').alias('i').action(() => {
+    console.log('--op-->')
+})
+console.log('--op-->')
