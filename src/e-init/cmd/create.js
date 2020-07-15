@@ -23,8 +23,15 @@ module.exports = (projectName) => {
     }
     const dirName = projectName[0];
     projectName.shift()
-    const optObj = projectName.map(_ => _.startsWith("--") ? _ + "#" : _).join(",").split(/--/g).slice(1).filter(_ => _).reduce((a, b) => (a[b.split('#')[0]] = (b.split('#')[1].split(",").filter(_ => _).join(",")), a), {})
+    const optObj = projectName.map(_ => _.startsWith("--") ? _ + "#" : _)
+    .join(",")
+    .split(/--/g)
+    .slice(1).
+    filter(_ => _)
+    .reduce((a, b) => (a[b.split('#')[0]] = (b.split('#')[1].split(",").filter(_ => _).join(",")), a), {})
+
     console.log('optObj-->', optObj)
+    
     // spinner.start()
 
     /* download('github:roaiKim/react-ro', path.join(process.cwd(), projectName[0]), (error) => {
